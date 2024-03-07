@@ -8,6 +8,7 @@ import streamlit as st
 # Local Modules
 import settings
 import helper
+
 logo = PIL.Image.open('images/pngwing.com (1).png')
 logo = logo.resize((500, 500))
 # Setting page layout
@@ -66,7 +67,7 @@ def change_theme():
 
 # Button face based on current theme
 btn_face = ms.themes["light"]["button_face"] if ms.themes["current_theme"] == "light" else ms.themes["dark"][
-        "button_face"]
+    "button_face"]
 
 # Button to change theme
 st.button(btn_face, on_click=change_theme)
@@ -75,7 +76,6 @@ st.button(btn_face, on_click=change_theme)
 if not ms.themes["refreshed"]:
     ms.themes["refreshed"] = True
 
-
 # Initialize session state attribute for sidebar selection
 if "sidebar_selection" not in ms:
     ms.sidebar_selection = False
@@ -83,7 +83,7 @@ if "sidebar_selection" not in ms:
 # Main page heading
 st.title("Human Detection using GB-Mask")
 st.warning('👈 Select your model')
-if not ms.sidebar_selection:
+if  ms.sidebar_selection == False:
     st.write("Om Namah Shivaya! 🙏")
     st.write("On this auspicious occasion of Maha Shivratri, may you be blessed with boundless wisdom and clarity 😊")
 
