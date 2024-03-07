@@ -16,7 +16,7 @@ st.set_page_config(
     page_title="Human Detection using GB-Mask",
     page_icon=logo,
     layout="wide",
-    initial_sidebar_state="collapsed"
+    initial_sidebar_state="auto"
 )
 hide_st_style = """
             <style>
