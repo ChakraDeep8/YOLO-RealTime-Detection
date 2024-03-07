@@ -50,6 +50,7 @@ if "themes" not in ms:
 
 
 def change_theme():
+    ms.sidebar_selection = True  # Initialize sidebar_selection when anything is selected in the sidebar
     previous_theme = ms.themes["current_theme"]
     tdict = ms.themes["light"] if ms.themes["current_theme"] == "light" else ms.themes["dark"]
     for vkey, vval in tdict.items():
@@ -75,6 +76,9 @@ if not ms.themes["refreshed"]:
     ms.themes["refreshed"] = True
     st.rerun()
 
+# Initialize session state attribute for sidebar selection
+if "sidebar_selection" not in ms:
+    ms.sidebar_selection = False
 
 # Main page heading
 st.title("Human Detection using GB-Mask")
