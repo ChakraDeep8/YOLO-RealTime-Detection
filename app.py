@@ -79,8 +79,9 @@ if not ms.themes["refreshed"]:
 # Main page heading
 st.title("Human Detection using GB-Mask")
 st.warning('👈 Select your model')
-st.write("Om Namah Shivaya! 🙏")
-st.write("On this auspicious occasion of Maha Shivratri, may you be blessed with boundless wisdom and clarity 😊")
+if not ms.sidebar_selection:
+    st.write("Om Namah Shivaya! 🙏")
+    st.write("On this auspicious occasion of Maha Shivratri, may you be blessed with boundless wisdom and clarity 😊")
 
 # Sidebar
 st.sidebar.header("Features")
