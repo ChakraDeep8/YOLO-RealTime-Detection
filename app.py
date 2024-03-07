@@ -74,7 +74,7 @@ st.button(btn_face, on_click=change_theme)
 # Check if theme needs to be refreshed
 if not ms.themes["refreshed"]:
     ms.themes["refreshed"] = True
-    st.rerun()
+
 
 # Initialize session state attribute for sidebar selection
 if "sidebar_selection" not in ms:
