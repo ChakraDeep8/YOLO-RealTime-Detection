@@ -47,7 +47,7 @@ def _display_detected_frames(conf, model, st_frame, image, is_display_tracking=N
     """
 
     # Resize the image to a standard size
-    image = cv2.resize(image, (720, int(720*(9/16))))
+    image = cv2.resize(image, (720, int(720 * (9 / 16))))
 
     # Display object tracking, if specified
     if is_display_tracking:
@@ -148,8 +148,9 @@ def play_rtsp_stream(conf, model):
             vid_cap.release()
             st.sidebar.error("Error loading RTSP stream: " + str(e))
 
+
 def single_display_detected_frames(conf, model, image, is_display_tracking=None, tracker=None):
-  """
+    """
   Processes and displays a single image with object detection results.
 
   Args:
@@ -160,15 +161,16 @@ def single_display_detected_frames(conf, model, image, is_display_tracking=None,
       tracker (optional): Tracker object if tracking is enabled.
   """
 
-  image = cv2.resize(image, (720, int(720*(9/16))))  # Resize for display
+    image = cv2.resize(image, (720, int(720 * (9 / 16))))  # Resize for display
 
-  if is_display_tracking:
-    res = model.track(image, conf=conf, persist=True, tracker=tracker)
-  else:
-    res = model.predict(image, conf=conf)
+    if is_display_tracking:
+        res = model.track(image, conf=conf, persist=True, tracker=tracker)
+    else:
+        res = model.predict(image, conf=conf)
 
-  res_plotted = res[0].plot()
-  return res_plotted  # Return the processed image with detections
+    res_plotted = res[0].plot()
+    return res_plotted  # Return the processed image with detections
+
 
 def play_webcam(conf, model):
     """
@@ -184,18 +186,16 @@ def play_webcam(conf, model):
     Raises:
         None
     """
+
     st_frame = st.empty()  # Create an empty container for displaying frames
     while True:
-        camera_frame = st.camera_input("Webcam Feed")  # Capture frame from webcam
+        camera_frame = st.camera_input("webcam_capture")  # Capture frame from webcam (unique key)
 
         if camera_frame is not None:
             image = cv2.cvtColor(np.array(camera_frame), cv2.COLOR_RGB2BGR)
-            # Call the updated _display_detected_frames function for processing
             processed_frame = single_display_detected_frames(conf, model, image, False)
             st_frame.image(processed_frame, channels="BGR", use_column_width=True)
 
-        # Simulate a delay for smoother video display (adjust as needed)
-        time.sleep(0.1)
 
 
 def play_stored_video(conf, model):
