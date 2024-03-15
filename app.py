@@ -83,7 +83,7 @@ if "sidebar_selection" not in ms:
 # Main page heading
 st.title("Human Detection using GB-Mask")
 st.warning('👈 Select your model')
-if  ms.sidebar_selection == False:
+if not ms.sidebar_selection:
     st.write("Om Namah Shivaya! 🙏")
     st.write("On this auspicious occasion of Maha Shivratri, may you be blessed with boundless wisdom and clarity 😊")
 
