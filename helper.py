@@ -188,14 +188,16 @@ def play_webcam(conf, model):
     """
 
     st_frame = st.empty()  # Create an empty container for displaying frames
-    while True:
-        camera_frame = st.camera_input("webcam_capture")  # Capture frame from webcam (unique key)
+    col1, col2, col3 = st.columns([1, 2, 1])
 
+
+    while True:
+        camera_frame = col2.camera_input("Take a photo")  # Capture frame from webcam (unique key)
+        col2.success("Photo uploaded successfully!")
         if camera_frame is not None:
             image = cv2.cvtColor(np.array(camera_frame), cv2.COLOR_RGB2BGR)
             processed_frame = single_display_detected_frames(conf, model, image, False)
             st_frame.image(processed_frame, channels="BGR", use_column_width=True)
-
 
 
 def play_stored_video(conf, model):
