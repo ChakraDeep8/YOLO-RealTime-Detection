@@ -113,8 +113,8 @@ source_radio = st.sidebar.radio(
 
 if source_radio == settings.IMAGE:
     st.markdown("""Wishing you a vibrant and colorful Holi filled with joy, laughter, and endless moments of happiness!😊 
-    May this festival of colors paint your life with love, prosperity, and positivity.💗 
-    Let's spread the cheer and celebrate the spirit of togetherness. 
+    \nMay this festival of colors paint your life with love, prosperity, and positivity.💗 
+    \nLet's spread the cheer and celebrate the spirit of togetherness. 
     Happy Holi!🔫""")
 # If image is selected
 if source_radio == settings.IMAGE:
