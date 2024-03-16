@@ -83,9 +83,6 @@ if "sidebar_selection" not in ms:
 # Main page heading
 st.title("Human Detection using GB-Mask")
 st.warning('👈 Select your model')
-if not ms.sidebar_selection:
-    st.write("Om Namah Shivaya! 🙏")
-    st.write("On this auspicious occasion of Maha Shivratri, may you be blessed with boundless wisdom and clarity 😊")
 
 # Sidebar
 st.sidebar.header("Features")
@@ -114,7 +111,11 @@ st.sidebar.header("Image/Video Config")
 source_radio = st.sidebar.radio(
     "Select Source", settings.SOURCES_LIST)
 
-source_img = None
+if source_radio == settings.IMAGE:
+    st.markdown("""Wishing you a vibrant and colorful Holi filled with joy, laughter, and endless moments of happiness!😊 
+    May this festival of colors paint your life with love, prosperity, and positivity.💗 
+    Let's spread the cheer and celebrate the spirit of togetherness. 
+    Happy Holi!🔫""")
 # If image is selected
 if source_radio == settings.IMAGE:
     source_img = st.sidebar.file_uploader(
